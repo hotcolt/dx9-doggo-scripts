@@ -1,4 +1,5 @@
 --[[ 
+        ver 1.1
 	Coded by: doggo (aka lock the hobo)
 	Modified for: sound space
 	Modified by: doggo
@@ -9,7 +10,7 @@ local settings = {
 	['Aimbot'] = {
 		['enabled'] = true,
 		['StopOnHover'] = true,
-		['HoverDistance'] = 20,  -- 100 is the full cube
+		['HoverDistance'] = 20,  -- 110 is the full cube
 		['max_distance'] = 1000,
 		['closes_to_crosshair'] = false,
 		['offset'] = {
@@ -22,9 +23,14 @@ local settings = {
 		['fov_color'] = {255,255,255},
 
 
-		['maxsmoothness'] = 1,
-		['minsmoothness'] = 1,
-		['sensitivity'] = 2,
+		['smoothness'] = { -- randomise the smoothness to max to min (max = maximum, min = minumum)  
+			['max'] = 1,
+			['min'] = 1,
+		},
+		['sensitivity'] = { -- randomise the smoothness to max to min (max = maximum, min = minumum)  
+		    ['max'] = 1,
+		    ['min'] = 1,
+		},
 
 		['target_dot'] = true, -- false > off | true > on
 		['target_dot_size'] = 70,
@@ -140,7 +146,7 @@ function createsetup(loc)
 				if setesp['enabled'] then 
 					
 					if setesp['head_dot'] then 
-						v.DrawCircle(headwts2,setesp['head_dot_color'],setesp['head_dot_size'])
+						v.DrawBox({headwts.x+80,headwts.y+80},{headwts.x-80,headwts.y-80},setesp['head_dot_color'])
 					end
 
 					if setesp['name'] then 
@@ -173,9 +179,9 @@ end
 
 if settings['Aimbot']['enabled'] then 
 	if (closest.dis > settings['Aimbot']['HoverDistance'] or not settings['Aimbot']['StopOnHover']) then 
-	    v.FirstPersonAim({closest.pos2.x+settings['Aimbot']['offset']['x'],closest.pos2.y+settings['Aimbot']['offset']['y']},math.random(settings['Aimbot']['minsmoothness'],settings['Aimbot']['maxsmoothness']),settings['Aimbot']['sensitivity'])
+	    v.FirstPersonAim({closest.pos2.x+settings['Aimbot']['offset']['x'],closest.pos2.y+settings['Aimbot']['offset']['y']},closest.dis3/80,math.random(settings['Aimbot']['sensitivity']['min'],settings['Aimbot']['sensitivity']['max']))
 	end
 	if settings['Aimbot']['target_dot'] then 
-		v.DrawCircle({closest.pos2.x,closest.pos2.y},settings['Aimbot']['target_dot_color'],settings['Aimbot']['target_dot_size'])
+		v.DrawBox({closest.pos2.x+80,closest.pos2.y+80},{closest.pos2.x-80,closest.pos2.y-80},settings['Aimbot']['target_dot_color'])
 	end
 end
