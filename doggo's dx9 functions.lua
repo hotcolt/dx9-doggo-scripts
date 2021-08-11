@@ -1,4 +1,4 @@
-NOTE: I'm not the best in explaining lua so dm me if you don't understand the function or my shit english | doggo#6713 - 447343864215502849
+-- NOTE: I'm not the best in explaining lua so dm me if you don't understand the function or my shit english | doggo#6713 - 447343864215502849
 
 
 --[[
