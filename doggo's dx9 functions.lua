@@ -1,8 +1,9 @@
-```lua
 NOTE: I'm not the best in explaining lua so dm me if you don't understand the function or my shit english | doggo#6713 - 447343864215502849
 
 
---[[    Magnitude function
+--[[
+
+	Magnitude function
 
 This is the the same as the roblox magnitude (https://developer.roblox.com/en-us/articles/Magnitude)
 but with this one you can only get the magnitude for 2 vector2's or vector3's 
@@ -27,8 +28,11 @@ local function magnitude(a,b)
     end
 end
 
+-----------------------------------------------------------------------------------------------------
+	
+--[[
 
---[[    Getpath function
+	Getpath function
 
 This function is basicly a faster way to get the path to a child.
 
@@ -37,6 +41,7 @@ Example:
   local camera = getpath(game, {'Workspace', 'Camera'}) -- returns the path (game.Workspace.Camera)
   print(dx9.GetName(camera)) -- This will return "Camera"
 ]]
+	
 local function getpath(begin,pathtable)
 	local dirpath = nil
 	for i,v in next, b do 
@@ -48,5 +53,3 @@ local function getpath(begin,pathtable)
 	end 
 	return dirpath
 end
-
-```
