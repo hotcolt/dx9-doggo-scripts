@@ -9,7 +9,7 @@ This is the the same as the roblox magnitude (https://developer.roblox.com/en-us
 but with this one you can only get the magnitude for 2 vector2's or vector3's 
 
 Example:
-  local option1Vector2 = {25, 10}
+  local option1Vector2 = {25, 10} -- for rlua users this is Vector2.new(25, 10) in dx9 lua
   local option2Vector2 = {15, 5}
   
   print(magnitude(option1Vector2, option2Vector2)) -- this will return the magnitude and this works with vector3 tho!
